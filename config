@@ -1,0 +1,148 @@
+# ╔══════════════════════════════════════════════════╗
+# ║           Ghostty Terminal Configuration         ║
+# ║   Location: ~/.config/ghostty/config             ║
+# ║   Docs: https://ghostty.org/docs/config          ║
+# ╚══════════════════════════════════════════════════╝
+#
+# Syntax notes:
+#   - key = value  (whitespace around = doesn't matter)
+#   - Comments must be on their own line (# is NOT inline)
+#   - Empty value resets to default: key =
+#   - Reload config: Ctrl+Shift+, (Linux) / Cmd+Shift+, (macOS)
+#   - View all options: ghostty +show-config --default --docs
+#
+# ──────────────────────────────────────────────────
+# FONT
+# ──────────────────────────────────────────────────
+# Primary font family. Leave empty to use the embedded JetBrains Mono.
+# Examples: "FiraCode Nerd Font", "Cascadia Code", "Maple Mono"
+font-family = "Maple Mono NF CN"
+
+# Font size in points
+font-size = 12
+
+# Adjust font thickening (useful for thin variable fonts on macOS)
+font-thicken = false
+
+# Disable ligatures if you prefer plain glyphs
+# font-feature = -liga
+# font-feature = -calt
+
+
+# ──────────────────────────────────────────────────
+# THEME & COLORS
+# ──────────────────────────────────────────────────
+
+# Built-in theme name. Run `ghostty +list-themes` to see all options.
+# Popular choices: catppuccin-mocha, catppuccin-latte, tokyonight,
+#                  nord, gruvbox-dark, rose-pine, dracula, one-dark
+theme = Catppuccin Mocha
+
+# Override background/foreground (hex, no '#')
+# background = 1e1e2e
+# foreground = cdd6f4
+
+# Background opacity (0.0–1.0). Requires compositor support on Linux.
+background-opacity = 0.85
+
+# Blur the background when opacity < 1 (macOS / some Wayland compositors)
+background-blur-radius = 30
+
+
+# ──────────────────────────────────────────────────
+# WINDOW & PADDING
+# ──────────────────────────────────────────────────
+
+# Initial window size (in terminal cells)
+window-height = 36
+window-width  = 130
+
+# Inner padding (pixels) around the terminal content
+window-padding-x = 10
+window-padding-y = 8
+
+# Keep padding balanced on the Y axis when the window is resized
+window-padding-balance = true
+
+macos-titlebar-style = transparent
+
+window-save-state = always
+window-theme = auto
+
+adjust-cell-height = 2
+
+
+# ──────────────────────────────────────────────────
+# SCROLLBACK
+# ──────────────────────────────────────────────────
+
+# Number of lines kept in the scrollback buffer (0 = unlimited)
+scrollback-limit = 25000000
+
+
+# ──────────────────────────────────────────────────
+# SHELL INTEGRATION
+# ──────────────────────────────────────────────────
+
+# Automatic shell integration — Ghostty injects itself into the shell.
+# Set to "none" to disable, or specify a shell: bash, zsh, fish
+shell-integration = detect
+
+
+# ──────────────────────────────────────────────────
+# COPY / PASTE
+# ──────────────────────────────────────────────────
+
+# Copy selection to clipboard automatically (like xterm)
+copy-on-select = clipboard
+
+# Trim trailing whitespace when copying
+clipboard-trim-trailing-spaces = true
+
+# Warn before pasting text that contains newlines
+clipboard-paste-protection = true
+
+clipboard-paste-bracketed-safe = true
+
+
+# ──────────────────────────────────────────────────
+# MOUSE
+# ──────────────────────────────────────────────────
+
+# Hide the mouse cursor while typing
+mouse-hide-while-typing = true
+
+
+# ──────────────────────────────────────────────────
+# KEYBINDINGS
+# ──────────────────────────────────────────────────
+# Format: keybind = <mods>+<key>=<action>
+# Full action list: https://ghostty.org/docs/config/reference#keybind
+
+# --- Splits---
+keybind = cmd+d=new_split:right
+keybind = cmd+shift+enter=toggle_split_zoom
+keybind = cmd+shift+f=toggle_split_zoom
+
+
+# ──────────────────────────────────────────────────
+# PERFORMANCE
+# ──────────────────────────────────────────────────
+
+# --- Quick Terminal ---
+quick-terminal-position = top
+quick-terminal-screen = mouse
+quick-terminal-autohide = true
+quick-terminal-animation-duration = 0.15
+
+
+# ──────────────────────────────────────────────────
+# SPECIFIC
+# ──────────────────────────────────────────────────
+
+# --- Claude ---
+# initial-command = /opt/homebrew/bin/claude
+initial-window = true
+quit-after-last-window-closed = true
+notify-on-command-finish = always
+
